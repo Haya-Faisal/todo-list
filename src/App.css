@@ -7,14 +7,8 @@
   pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+.app-background {
+  background-color: #eff1f7;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -22,17 +16,89 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  background-image: url('./assets/todolistbg.jpg'); /* or use imported image */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment:scroll;
+  min-height: 100vh;
+  width: 100%;
 }
 
-.App-link {
-  color: #61dafb;
+.overlay-rectangle {
+  background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent white */
+  border-radius: 10px; /* Optional: rounded corners */
+  padding: 30px; /* Add some padding inside the rectangle */
+  width: 80%; /* Adjust width as needed */
+  max-width: 600px; /* Optional: max width for large screens */
+  margin: 0 auto; /* Center the rectangle */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.to-do-list{
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin-top: 100px;
 }
+h1{
+    font-size: 4rem;
+    color: rgb(121,86,99);
+}
+button{
+    font-size: 1.7rem;
+    font-weight: bold;
+    padding: 10px 20px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.5s ease;
+}
+.add-button{
+    background-color: rgb(163,163,128);
+}
+.add-button:hover{
+    background-color: rgb(174, 174, 55);
+}
+.delete-button{
+    background-color: rgb(216, 136, 104);
+}
+.delete-button:hover{
+    background-color: rgb(196, 90, 48);
+}
+.move-button{
+    background-color: rgb(187,133,136);
+}
+.move-button:hover{
+    background-color: rgb(153, 91, 94);
+}
+input[type="text"]{
+    font-size: 1.6rem;
+    padding: 10px;
+    border: 2px solid hsla(0, 0%, 80%, 0.5);
+    border-radius: 5px;
+    color: hsla(0, 0%, 0%, 0.5);
+}
+ol{
+    padding: 0;
+}
+li{
+    font-size: 2rem;
+    font-weight: bold;
+    color: rgb(121,86,99);
+    padding: 15px;
+    background-color: hsl(0, 0%, 97%);
+    margin-bottom: 10px;
+    border: 3px solid hsla(0, 26%, 83%, 0.75);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+}
+.text{
+    flex: 1;
+}
+.delete-button, .move-button{
+    padding: 8px 12px;
+    font-size: 1.4rem;
+    margin-left: 10px;
+}
+
