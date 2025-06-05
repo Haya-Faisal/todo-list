@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/Haya-Faisal/todo-list.git/static/css/main.d13614a0.css",
-    "main.js": "/Haya-Faisal/todo-list.git/static/js/main.3aa087f7.js",
-    "static/js/453.81f383cb.chunk.js": "/Haya-Faisal/todo-list.git/static/js/453.81f383cb.chunk.js",
-    "static/media/todolistbg.jpg": "/Haya-Faisal/todo-list.git/static/media/todolistbg.71493eb823c76657002c.jpg",
-    "index.html": "/Haya-Faisal/todo-list.git/index.html",
-    "main.d13614a0.css.map": "/Haya-Faisal/todo-list.git/static/css/main.d13614a0.css.map",
-    "main.3aa087f7.js.map": "/Haya-Faisal/todo-list.git/static/js/main.3aa087f7.js.map",
-    "453.81f383cb.chunk.js.map": "/Haya-Faisal/todo-list.git/static/js/453.81f383cb.chunk.js.map"
+    "main.css": "/todo-list/static/css/main.e51476fa.css",
+    "main.js": "/todo-list/static/js/main.5fc72ad1.js",
+    "static/js/453.81f383cb.chunk.js": "/todo-list/static/js/453.81f383cb.chunk.js",
+    "static/media/todolistbg.jpg": "/todo-list/static/media/todolistbg.71493eb823c76657002c.jpg",
+    "index.html": "/todo-list/index.html",
+    "main.e51476fa.css.map": "/todo-list/static/css/main.e51476fa.css.map",
+    "main.5fc72ad1.js.map": "/todo-list/static/js/main.5fc72ad1.js.map",
+    "453.81f383cb.chunk.js.map": "/todo-list/static/js/453.81f383cb.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.d13614a0.css",
-    "static/js/main.3aa087f7.js"
+    "static/css/main.e51476fa.css",
+    "static/js/main.5fc72ad1.js"
   ]
 }
