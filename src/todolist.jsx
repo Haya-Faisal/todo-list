@@ -1,84 +1,110 @@
-import React,{useState} from "react"
+import React, { useState } from "react";
 
-function Todolist(){
-     const [tasks, setTasks] = useState(["Add task here"]);
-     const [newTask, setNewTask] = useState("");
+function Todolist() {
+    const [tasks, setTasks] = useState([]);
+    const [newTask, setNewTask] = useState("");
+    const [completedIndices, setCompletedIndices] = useState([]);
 
-     function handleInputChange(event){
+    function handleInputChange(event) {
         setNewTask(event.target.value);
-     }
+    }
 
-     function addtask() {
-        if(newTask.trim()!==""){
-            setTasks(t=>[...t,newTask]);
+    function addtask() {
+        if (newTask.trim() !== "") {
+            setTasks(t => [...t, newTask]);
             setNewTask("");
         }
-     }
+    }
 
-     function deletetask(index) {
-        const updatedTasks = tasks.filter((_, i) => i !== index);
-        setTasks(updatedTasks);
-     }
+    const toggleComplete = (index) => {
+        setCompletedIndices(prev => 
+            prev.includes(index) 
+                ? prev.filter(i => i !== index) 
+                : [...prev, index]
+        );
+    };
 
-     function movetaskup(index){
-         if(index > 0){
+    function movetaskup(index) {
+        if (index > 0) {
             const updatedTasks = [...tasks];
             [updatedTasks[index], updatedTasks[index - 1]] = 
             [updatedTasks[index - 1], updatedTasks[index]];
             setTasks(updatedTasks);
         }
-     }
+    }
 
-     function movetaskdown(index){
-         if(index < tasks.length - 1){
+    function movetaskdown(index) {
+        if (index < tasks.length - 1) {
             const updatedTasks = [...tasks];
             [updatedTasks[index], updatedTasks[index + 1]] = 
             [updatedTasks[index + 1], updatedTasks[index]];
             setTasks(updatedTasks);
         }
-     }
+    }
 
-     return(
-        <div classname="to-do-list"> 
+    return (
+        <div className="to-do-list"> 
             <h1>To-Do-List</h1>
             <div>
                 <input
-                type="text"
-                placeholder="Enter a task..."
-                value={newTask}
-                onChange={handleInputChange}/>
-                 <button
-                 className="add-button"
-                 onClick={addtask}>
-                 Add
+                    type="text"
+                    placeholder="Write your task here..."
+                    value={newTask}
+                    onChange={handleInputChange}
+                />
+                <button
+                    className="add-button"
+                    onClick={addtask}
+                >
+                    +
                 </button>
             </div>
-             <ol>
+            <ol>
                 {tasks.map((task, index) => 
-                 <li key={index}>
-                      <span className="text">{task}</span>
-                      <button
-                         className="delete-button"
-                         onClick={() => deletetask(index)}>
-                         Delete
-                      </button>
-                      <button
-                         className="move-button"
-                         onClick={() => movetaskup(index)}>
-                         ☝
-                      </button>
-                      <button
-                         className="move-button"
-                         onClick={() => movetaskdown(index)}>
-                         👇
-                     </button>
-                 </li>
-              )}
+                    <li key={index}>
+                        <span 
+                            className="text"
+                            onClick={() => toggleComplete(index)}
+                            style={{ 
+                                textDecoration: completedIndices.includes(index) ? "line-through" : "none",
+                                cursor: "pointer",
+                                color: completedIndices.includes(index) ? "rgb(121,86,99)" : "inherit"
+                            }}
+                        >
+                            {task}
+                        </span>
+                        {/* <button
+                            className="delete-button"
+                            onClick={(e) => {
+                                e.stopPropagation();
+                                deletetask(index);
+                            }}
+                        >
+                            Delete
+                        </button> */}
+                        <button
+                            className="move-button"
+                            onClick={(e) => {
+                                e.stopPropagation();
+                                movetaskup(index);
+                            }}
+                        >
+                            ☝
+                        </button>
+                        <button
+                            className="move-button"
+                            onClick={(e) => {
+                                e.stopPropagation();
+                                movetaskdown(index);
+                            }}
+                        >
+                            👇
+                        </button>
+                    </li>
+                )}
             </ol>
-
-
         </div>
-     )
-
+    )
 }
-export default Todolist
+
+export default Todolist;
